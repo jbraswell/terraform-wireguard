@@ -78,3 +78,8 @@ systemctl start wg-quick@wg0
 TFEOF
   }
 }
+
+resource digitalocean_floating_ip wireguard {
+  droplet_id = digitalocean_droplet.wireguard.id
+  region     = digitalocean_droplet.wireguard.region
+}

@@ -7,5 +7,5 @@ resource aws_route53_record wireguard {
   name    = "wg.${data.aws_route53_zone.base.name}"
   type    = "A"
   ttl     = "60"
-  records = [digitalocean_droplet.wireguard.ipv4_address]
+  records = [digitalocean_floating_ip.wireguard.ip_address]
 }
