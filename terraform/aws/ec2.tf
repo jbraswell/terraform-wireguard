@@ -90,7 +90,7 @@ PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o ens5 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o ens5 -j MASQUERADE
 
 [Peer]
-PublicKey = M5h50PgCF7CYSbZ1J6Pl/igd2+Wuz0TsK+HXpZeYZTk=
+PublicKey = 2M8lMDqeA4aZXKx1OtRV7LjJf42oaqhNXuJaxdkDFX0=
 AllowedIPs = 10.10.10.2/32
 EOF
 
