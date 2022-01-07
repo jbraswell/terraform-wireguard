@@ -1,15 +1,19 @@
 terraform {
-  backend s3 {
+  backend "s3" {
     bucket = "jbraswell-tfstate"
     key    = "wireguard-do.tfstate"
     region = "us-east-1"
   }
 }
 
-provider aws {
-  region = "us-east-1"
+provider "digitalocean" {
+  token = var.do_token
 }
 
-provider digitalocean {
-  token = var.do_token
+terraform {
+  required_providers {
+    digitalocean = {
+      source = "digitalocean/digitalocean"
+    }
+  }
 }

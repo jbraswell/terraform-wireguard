@@ -1,15 +1,11 @@
-variable private_key {
+variable "private_key" {
   type = string
 }
 
-variable base_domain {
+variable "do_token" {
   type = string
 }
 
-variable do_token {
-  type = string
-}
-
-variable ssh_public_key {
+variable "ssh_public_key" {
   type = string
 }

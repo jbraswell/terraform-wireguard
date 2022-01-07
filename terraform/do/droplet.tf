@@ -1,22 +1,22 @@
-resource digitalocean_droplet wireguard {
+resource "digitalocean_droplet" "wireguard" {
   image     = "ubuntu-20-04-x64"
   name      = "wireguard-${terraform.workspace}"
-  region    = "nyc1"
+  region    = "ams3"
   size      = "s-1vcpu-1gb"
   ssh_keys  = [digitalocean_ssh_key.wireguard.fingerprint]
   user_data = data.template_cloudinit_config.wireguard.rendered
 }
 
-resource digitalocean_firewall wireguard {
+resource "digitalocean_firewall" "wireguard" {
   name = "wireguard-${terraform.workspace}"
 
   droplet_ids = [digitalocean_droplet.wireguard.id]
 
-  //  inbound_rule {
-  //    protocol         = "tcp"
-  //    port_range       = "22"
-  //    source_addresses = ["0.0.0.0/0", "::/0"]
-  //  }
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "22"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
 
   inbound_rule {
     protocol         = "udp"
@@ -37,7 +37,7 @@ resource digitalocean_firewall wireguard {
   }
 }
 
-data template_cloudinit_config wireguard {
+data "template_cloudinit_config" "wireguard" {
   gzip          = false
   base64_encode = false
 
@@ -68,7 +68,7 @@ PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 [Peer]
-PublicKey = 2M8lMDqeA4aZXKx1OtRV7LjJf42oaqhNXuJaxdkDFX0=
+PublicKey = umZP5c0w1GZ3F2Wt/LVbIhKXiVUm9Wot6eSF1HmbREY=
 AllowedIPs = 10.10.10.2/32
 EOF
 
@@ -79,7 +79,9 @@ TFEOF
   }
 }
 
-resource digitalocean_floating_ip wireguard {
+resource "digitalocean_floating_ip" "wireguard" {
   droplet_id = digitalocean_droplet.wireguard.id
   region     = digitalocean_droplet.wireguard.region
 }
+
+
