@@ -1,7 +1,7 @@
 resource "digitalocean_droplet" "wireguard" {
   image     = "ubuntu-20-04-x64"
   name      = "wireguard-${terraform.workspace}"
-  region    = "ams3"
+  region    = var.region
   size      = "s-1vcpu-1gb"
   ssh_keys  = [digitalocean_ssh_key.wireguard.fingerprint]
   user_data = data.template_cloudinit_config.wireguard.rendered

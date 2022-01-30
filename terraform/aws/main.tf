@@ -7,7 +7,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
 
 data "aws_vpc" "default" {
@@ -28,8 +28,6 @@ data "aws_ami" "ubuntu" {
     values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
   }
 }
-
-data "aws_region" "current" {}
 
 data "external" "server_public_key" {
   program = ["${path.module}/../wg-pubkey.sh"]
