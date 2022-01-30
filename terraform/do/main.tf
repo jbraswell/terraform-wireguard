@@ -17,3 +17,23 @@ terraform {
     }
   }
 }
+
+data "external" "server_public_key" {
+  program = ["${path.module}/../wg-pubkey.sh"]
+
+  query = {
+    private_key = var.server_private_key
+  }
+}
+
+data "http" "ip" {
+  url = "https://ifconfig.me/all.json"
+
+  request_headers = {
+    Accept = "application/json"
+  }
+}
+
+locals {
+  myip = "${jsondecode(data.http.ip.body).ip_addr}/32"
+}

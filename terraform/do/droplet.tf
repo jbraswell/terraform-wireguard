@@ -83,15 +83,3 @@ resource "digitalocean_floating_ip" "wireguard" {
   droplet_id = digitalocean_droplet.wireguard.id
   region     = digitalocean_droplet.wireguard.region
 }
-
-data "http" "ip" {
-  url = "https://ifconfig.me/all.json"
-
-  request_headers = {
-    Accept = "application/json"
-  }
-}
-
-locals {
-  myip = "${jsondecode(data.http.ip.body).ip_addr}/32"
-}
