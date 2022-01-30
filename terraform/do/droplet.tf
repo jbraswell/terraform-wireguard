@@ -55,7 +55,7 @@ EOF
     content_type = "text/x-shellscript"
     content      = <<TFEOF
 #!/bin/bash
-privatekey=${var.private_key}
+privatekey=${var.server_private_key}
 
 cat << EOF > /etc/wireguard/wg0.conf
 [Interface]
@@ -68,7 +68,7 @@ PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 [Peer]
-PublicKey = ${var.public_key}
+PublicKey = ${var.client_public_key}
 AllowedIPs = 10.10.10.2/32
 EOF
 

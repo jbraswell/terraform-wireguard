@@ -31,20 +31,14 @@ data "aws_ami" "ubuntu" {
 
 data "aws_region" "current" {}
 
-data "aws_iam_policy_document" "ec2_assume_role_policy" {
-  statement {
-    actions = ["sts:AssumeRole"]
+data "http" "ip" {
+  url = "https://ifconfig.me/all.json"
 
-    principals {
-      type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
-    }
+  request_headers = {
+    Accept = "application/json"
   }
 }
 
-data "aws_iam_policy_document" "wireguard" {
-  statement {
-    actions   = ["ssm:GetParameter", "ssm:PutParameter"]
-    resources = ["arn:aws:ssm:${data.aws_region.current.name}:*:/parameter/wireguard/privatekey"]
-  }
+locals {
+  myip = "${jsondecode(data.http.ip.body).ip_addr}/32"
 }

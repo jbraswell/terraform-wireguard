@@ -1,8 +1,8 @@
-variable "private_key" {
+variable "server_private_key" {
   type = string
 }
 
-variable "public_key" {
+variable "client_public_key" {
   type = string
 }
 

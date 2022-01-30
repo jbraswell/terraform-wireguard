@@ -1,7 +1,11 @@
-variable "private_key" {
+variable "server_private_key" {
   type = string
 }
 
-variable "base_domain" {
+variable "client_public_key" {
+  type = string
+}
+
+variable "ssh_public_key" {
   type = string
 }

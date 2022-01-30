@@ -5,14 +5,14 @@ install wg cli `brew install wireguard-tools`
 
 1. Generate private key for server. Call this server private key.
 
-```bahs
+```bash
 wg genkey | tee > private.key
 ```
 
 2. Extract public key from that. Call this server public key.
 
-```sh
-< private.key | wg pubkey
+```bash
+cat private.key | wg pubkey
 ```
 
 3. Set terraform variables with these generated pub/priv keys
