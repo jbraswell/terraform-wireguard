@@ -37,3 +37,39 @@ Endpoint = SERVER_IP:51820
 
 
 This [guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-wireguard-on-ubuntu-20-04) may or may not contain useful information.
+
+
+## Digital Ocean Regions
+
+| Geographic Location          | Slug (For API) |
+|------------------------------|----------------|
+| New York City, United States | nyc3           |
+| Amsterdam, the Netherlands   | ams3           |
+| San Francisco, United States | sfo3           |
+| London, United Kingdom       | lon1           |
+| Frankfurt, Germany           | fra1           |
+| Toronto, Canada              | tor1           |
+| Bangalore, India             | blr1           |
+
+
+## AWS Regions
+
+| GeographicLocation  |   Region Name   |
+|---------------------|-----------------|
+|  Stockholm, Sweden  |  eu-north-1     |
+|  Mumbai, India      |  ap-south-1     |
+|  Paris, France      |  eu-west-3      |
+|  London, England    |  eu-west-2      |
+|  Ireland            |  eu-west-1      |
+|  Osaka, Japan       |  ap-northeast-3 |
+|  Seoul, South Korea |  ap-northeast-2 |
+|  Tokyo, Japan       |  ap-northeast-1 |
+|  São Paulo, Brazil  |  sa-east-1      |
+|  Canada (Central)   |  ca-central-1   |
+|  Singapore          |  ap-southeast-1 |
+|  Sydney, Australia  |  ap-southeast-2 |
+|  Frankfurt, Germany |  eu-central-1   |
+|  Virginia, US       |  us-east-1      |
+|  Ohio, US           |  us-east-2      |
+|  California, US     |  us-west-1      |
+|  Oregon, US         |  us-west-2      |
