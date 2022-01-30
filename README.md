@@ -37,3 +37,18 @@ Endpoint = SERVER_IP:51820
 
 
 This [guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-wireguard-on-ubuntu-20-04) may or may not contain useful information.
+
+
+## Digital Ocean Regions
+
+| Geographic Location          | Slug (For API) |
+|------------------------------|----------------|
+| New York City, United States | nyc3           |
+| Amsterdam, the Netherlands   | ams3           |
+| San Francisco, United States | sfo3           |
+| London, United Kingdom       | lon1           |
+| Frankfurt, Germany           | fra1           |
+| Toronto, Canada              | tor1           |
+| Bangalore, India             | blr1           |
+
+
