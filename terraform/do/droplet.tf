@@ -15,13 +15,13 @@ resource "digitalocean_firewall" "wireguard" {
   inbound_rule {
     protocol         = "tcp"
     port_range       = "22"
-    source_addresses = ["0.0.0.0/0", "::/0"]
+    source_addresses = [local.myip]
   }
 
   inbound_rule {
     protocol         = "udp"
     port_range       = "51820"
-    source_addresses = ["0.0.0.0/0", "::/0"]
+    source_addresses = [local.myip]
   }
 
   outbound_rule {
@@ -68,7 +68,7 @@ PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 [Peer]
-PublicKey = umZP5c0w1GZ3F2Wt/LVbIhKXiVUm9Wot6eSF1HmbREY=
+PublicKey = ${var.public_key}
 AllowedIPs = 10.10.10.2/32
 EOF
 
@@ -84,4 +84,14 @@ resource "digitalocean_floating_ip" "wireguard" {
   region     = digitalocean_droplet.wireguard.region
 }
 
+data "http" "ip" {
+  url = "https://ifconfig.me/all.json"
 
+  request_headers = {
+    Accept = "application/json"
+  }
+}
+
+locals {
+  myip = "${jsondecode(data.http.ip.body).ip_addr}/32"
+}
