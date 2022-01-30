@@ -31,6 +31,14 @@ data "aws_ami" "ubuntu" {
 
 data "aws_region" "current" {}
 
+data "external" "server_public_key" {
+  program = ["${path.module}/../wg-pubkey.sh"]
+
+  query = {
+    private_key = var.server_private_key
+  }
+}
+
 data "http" "ip" {
   url = "https://ifconfig.me/all.json"
 
