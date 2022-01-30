@@ -1,3 +1,4 @@
 .idea
 settings.auto.tfvars
 .terraform
+backend.tf

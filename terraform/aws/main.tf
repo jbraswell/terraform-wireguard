@@ -1,11 +1,3 @@
-terraform {
-  backend "s3" {
-    bucket = "jbraswell-tfstate"
-    key    = "wireguard.tfstate"
-    region = "us-east-1"
-  }
-}
-
 provider "aws" {
   region = var.region
 }
