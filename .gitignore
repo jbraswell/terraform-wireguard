@@ -2,3 +2,5 @@
 settings.auto.tfvars
 .terraform
 backend.tf
+*.tfstate
+*.tfstate.*
