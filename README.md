@@ -52,3 +52,24 @@ This [guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-wire
 | Bangalore, India             | blr1           |
 
 
+## AWS Regions
+
+| GeographicLocation  |   Region Name   |
+|---------------------|-----------------|
+|  Stockholm, Sweden  |  eu-north-1     |
+|  Mumbai, India      |  ap-south-1     |
+|  Paris, France      |  eu-west-3      |
+|  London, England    |  eu-west-2      |
+|  Ireland            |  eu-west-1      |
+|  Osaka, Japan       |  ap-northeast-3 |
+|  Seoul, South Korea |  ap-northeast-2 |
+|  Tokyo, Japan       |  ap-northeast-1 |
+|  São Paulo, Brazil  |  sa-east-1      |
+|  Canada (Central)   |  ca-central-1   |
+|  Singapore          |  ap-southeast-1 |
+|  Sydney, Australia  |  ap-southeast-2 |
+|  Frankfurt, Germany |  eu-central-1   |
+|  Virginia, US       |  us-east-1      |
+|  Ohio, US           |  us-east-2      |
+|  California, US     |  us-west-1      |
+|  Oregon, US         |  us-west-2      |
