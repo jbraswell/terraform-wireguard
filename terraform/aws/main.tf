@@ -1,24 +1,24 @@
 terraform {
-  backend s3 {
+  backend "s3" {
     bucket = "jbraswell-tfstate"
     key    = "wireguard.tfstate"
     region = "us-east-1"
   }
 }
 
-provider aws {
+provider "aws" {
   region = "us-east-1"
 }
 
-data aws_vpc default {
+data "aws_vpc" "default" {
   default = true
 }
 
-data aws_subnet_ids subnets {
+data "aws_subnet_ids" "subnets" {
   vpc_id = data.aws_vpc.default.id
 }
 
-data aws_ami ubuntu {
+data "aws_ami" "ubuntu" {
   owners = ["099720109477"]
 
   most_recent = true
@@ -29,9 +29,9 @@ data aws_ami ubuntu {
   }
 }
 
-data aws_region current {}
+data "aws_region" "current" {}
 
-data aws_iam_policy_document ec2_assume_role_policy {
+data "aws_iam_policy_document" "ec2_assume_role_policy" {
   statement {
     actions = ["sts:AssumeRole"]
 
@@ -42,7 +42,7 @@ data aws_iam_policy_document ec2_assume_role_policy {
   }
 }
 
-data aws_iam_policy_document wireguard {
+data "aws_iam_policy_document" "wireguard" {
   statement {
     actions   = ["ssm:GetParameter", "ssm:PutParameter"]
     resources = ["arn:aws:ssm:${data.aws_region.current.name}:*:/parameter/wireguard/privatekey"]

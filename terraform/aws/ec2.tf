@@ -1,4 +1,4 @@
-resource aws_instance wireguard {
+resource "aws_instance" "wireguard" {
   ami                         = data.aws_ami.ubuntu.id
   subnet_id                   = tolist(data.aws_subnet_ids.subnets.ids)[0]
   instance_type               = "t3.nano"
@@ -12,32 +12,32 @@ resource aws_instance wireguard {
   }
 }
 
-resource aws_iam_role wireguard {
+resource "aws_iam_role" "wireguard" {
   name               = "wireguard-${terraform.workspace}"
   assume_role_policy = data.aws_iam_policy_document.ec2_assume_role_policy.json
 }
 
-resource aws_iam_policy wireguard {
+resource "aws_iam_policy" "wireguard" {
   name   = "wireguard-${terraform.workspace}"
   policy = data.aws_iam_policy_document.wireguard.json
 }
 
-resource aws_iam_role_policy_attachment wireguard {
+resource "aws_iam_role_policy_attachment" "wireguard" {
   role       = aws_iam_role.wireguard.name
   policy_arn = aws_iam_policy.wireguard.arn
 }
 
-resource aws_iam_role_policy_attachment ssm {
+resource "aws_iam_role_policy_attachment" "ssm" {
   role       = aws_iam_role.wireguard.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
-resource aws_iam_instance_profile wireguard {
+resource "aws_iam_instance_profile" "wireguard" {
   name = "wireguard-${terraform.workspace}"
   role = aws_iam_role.wireguard.name
 }
 
-resource aws_security_group wireguard {
+resource "aws_security_group" "wireguard" {
   vpc_id = data.aws_vpc.default.id
   name   = "wireguard-${terraform.workspace}"
 
@@ -56,7 +56,7 @@ resource aws_security_group wireguard {
   }
 }
 
-data template_cloudinit_config wireguard {
+data "template_cloudinit_config" "wireguard" {
   gzip          = true
   base64_encode = true
 

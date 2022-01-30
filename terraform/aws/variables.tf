@@ -1,7 +1,7 @@
-variable private_key {
+variable "private_key" {
   type = string
 }
 
-variable base_domain {
+variable "base_domain" {
   type = string
 }
