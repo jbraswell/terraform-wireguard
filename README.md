@@ -2,7 +2,8 @@
 
 ## Prerequisites (MacOS)
 1. Install Wireguard from the [App Store](https://apps.apple.com/ug/app/wireguard/id1451685025?mt=12).
-2. Install `wg` cli: `brew install wireguard-tools`
+2. Install `wg`: `brew install wireguard-tools`
+3. Install `jq`: `brew install jq`
 
 ## How to use
 Whether targeting AWS or DigitalOcean, the general steps are as follows:
