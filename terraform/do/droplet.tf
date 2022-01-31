@@ -53,27 +53,7 @@ EOF
 
   part {
     content_type = "text/x-shellscript"
-    content      = <<TFEOF
-#!/bin/bash
-cat << EOF > /etc/wireguard/wg0.conf
-[Interface]
-Address = 10.10.10.1/32
-ListenPort = 51820
-PrivateKey = ${var.server_private_key}
-PostUp = sysctl -w net.ipv4.ip_forward=1
-PostUp = sysctl -w net.ipv6.conf.all.forwarding=1
-PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
-
-[Peer]
-PublicKey = ${var.client_public_key}
-AllowedIPs = 10.10.10.2/32
-EOF
-
-chmod 600 /etc/wireguard/wg0.conf
-systemctl enable wg-quick@wg0
-systemctl start wg-quick@wg0
-TFEOF
+    content      = templatefile("${path.module}/../configure-server.sh.tftpl", { wg0_conf = data.wireguard_config_document.server.conf })
   }
 }
 

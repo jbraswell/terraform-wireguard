@@ -77,3 +77,22 @@ provider "registry.terraform.io/hashicorp/http" {
     "zh:fe373b2fb2cc94777a91ecd7ac5372e699748c455f44f6ea27e494de9e5e6f92",
   ]
 }
+
+provider "registry.terraform.io/ojford/wireguard" {
+  version = "0.1.3"
+  hashes = [
+    "h1:tLwoMLiWsjpvS+83Ee270mj1gf7ivZPYCghWpBD4VqE=",
+    "zh:00b01809ab0336f2643a1e2f97c85d5fc4539fff5561c24ab4d195f6d4e5d4c6",
+    "zh:026abd9aed1282ba237f18a7c1742c8e84a9ad61bf178cd6a6568214505c2d52",
+    "zh:1ff8b888c003b7419ed087ab73c4202a98fa9ee5c3e7c8c3b67982087d41282a",
+    "zh:3d9004bddd95d077e709570bf95f3f6db70802e93aaaab37bef2a4d68e3abb33",
+    "zh:504b59047f6f1e3c6a71290a8c0bd971042cd841cee5539923f0937a5651966e",
+    "zh:680f76db52831542e94c7245499318103fcd1b81fc0e75b94d687e2c526ee705",
+    "zh:8134a75fd80af0bb7808afee665ca943d943fe9e0e5257e932faa97a05e01e41",
+    "zh:95ed0816db3847901ae2cfbbf26ace3fe2e4e8a4e83be0f35cd8e4a875fce219",
+    "zh:9f9cb03721ed6078306389ef8600d2569f0b631f25f0bf9622321df034a4f881",
+    "zh:b4deceba9b66fd80bf43d2b3596a0a3f7f55a607bd9d8cfa9cf308684e25edd2",
+    "zh:c1f82b778882d197ebfa9e43e6f8398f2f55fc55eb01931f83ac4df4c7f33f80",
+    "zh:c65872549d9cd4de4854ecf3eb5a51c9d081c557cd6d3a6fb3335758257e76b0",
+  ]
+}
