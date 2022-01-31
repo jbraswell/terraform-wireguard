@@ -15,5 +15,5 @@ variable "ssh_public_key" {
 
 variable "region" {
   type        = string
-  description = "The wireguard server's desired region. Valid regions at https://docs.aws.amazon.com/directoryservice/latest/admin-guide/regions.html."
+  description = "The wireguard server's desired region. Valid regions at https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions."
 }
