@@ -4,7 +4,7 @@ resource "digitalocean_droplet" "wireguard" {
   region    = var.region
   size      = "s-1vcpu-1gb"
   ssh_keys  = [digitalocean_ssh_key.wireguard.fingerprint]
-  user_data = data.template_cloudinit_config.wireguard.rendered
+  user_data = data.cloudinit_config.wireguard.rendered
 }
 
 resource "digitalocean_firewall" "wireguard" {
@@ -37,7 +37,7 @@ resource "digitalocean_firewall" "wireguard" {
   }
 }
 
-data "template_cloudinit_config" "wireguard" {
+data "cloudinit_config" "wireguard" {
   gzip          = false
   base64_encode = false
 
@@ -55,13 +55,11 @@ EOF
     content_type = "text/x-shellscript"
     content      = <<TFEOF
 #!/bin/bash
-privatekey=${var.server_private_key}
-
 cat << EOF > /etc/wireguard/wg0.conf
 [Interface]
 Address = 10.10.10.1/32
 ListenPort = 51820
-PrivateKey = $${privatekey}
+PrivateKey = ${var.server_private_key}
 PostUp = sysctl -w net.ipv4.ip_forward=1
 PostUp = sysctl -w net.ipv6.conf.all.forwarding=1
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE

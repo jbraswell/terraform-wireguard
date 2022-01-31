@@ -5,7 +5,7 @@ resource "aws_instance" "wireguard" {
   key_name                    = aws_key_pair.wireguard.key_name
   vpc_security_group_ids      = [aws_security_group.wireguard.id]
   associate_public_ip_address = true
-  user_data                   = data.template_cloudinit_config.wireguard.rendered
+  user_data                   = data.cloudinit_config.wireguard.rendered
 
   tags = {
     Name = "wireguard"
@@ -38,7 +38,7 @@ resource "aws_security_group" "wireguard" {
   }
 }
 
-data "template_cloudinit_config" "wireguard" {
+data "cloudinit_config" "wireguard" {
   gzip          = false
   base64_encode = false
 
@@ -56,13 +56,11 @@ EOF
     content_type = "text/x-shellscript"
     content      = <<TFEOF
 #!/bin/bash
-privatekey=${var.server_private_key}
-
 cat << EOF > /etc/wireguard/wg0.conf
 [Interface]
 Address = 10.10.10.1/32
 ListenPort = 51820
-PrivateKey = $${privatekey}
+PrivateKey = ${var.server_private_key}
 PostUp = sysctl -w net.ipv4.ip_forward=1
 PostUp = sysctl -w net.ipv6.conf.all.forwarding=1
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
