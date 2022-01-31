@@ -2,19 +2,16 @@ provider "digitalocean" {
   token = var.do_token
 }
 
+provider "wireguard" {}
+
 terraform {
   required_providers {
     digitalocean = {
       source = "digitalocean/digitalocean"
     }
-  }
-}
-
-data "external" "server_public_key" {
-  program = ["${path.module}/../wg-pubkey.sh"]
-
-  query = {
-    private_key = var.server_private_key
+    wireguard = {
+      source = "OJFord/wireguard"
+    }
   }
 }
 

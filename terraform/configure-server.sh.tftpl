@@ -1,0 +1,8 @@
+#!/bin/bash
+cat << EOF > /etc/wireguard/wg0.conf
+${wg0_conf}
+EOF
+
+chmod 600 /etc/wireguard/wg0.conf
+systemctl enable wg-quick@wg0
+systemctl start wg-quick@wg0
