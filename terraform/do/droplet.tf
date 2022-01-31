@@ -56,8 +56,3 @@ EOF
     content      = templatefile("${path.module}/../configure-server.sh.tftpl", { wg0_conf = data.wireguard_config_document.server.conf })
   }
 }
-
-resource "digitalocean_floating_ip" "wireguard" {
-  droplet_id = digitalocean_droplet.wireguard.id
-  region     = digitalocean_droplet.wireguard.region
-}
