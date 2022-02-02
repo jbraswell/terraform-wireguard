@@ -1,7 +1,7 @@
 # terraform-wireguard
 
-## Prerequisites (MacOS)
-Install Wireguard from the [App Store](https://apps.apple.com/ug/app/wireguard/id1451685025?mt=12).
+## Prerequisites
+Install Wireguard with the os of your choice from [WireGuard](https://www.wireguard.com/install/).
 
 ## How to use
 Whether targeting AWS or DigitalOcean, the general steps are as follows:
