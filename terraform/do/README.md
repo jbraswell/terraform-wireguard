@@ -1,15 +1,18 @@
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | ~> 2.17.0 |
+| <a name="requirement_wireguard"></a> [wireguard](#requirement\_wireguard) | ~> 0.1.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | 2.2.0 |
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.17.1 |
-| <a name="provider_http"></a> [http](#provider\_http) | 2.1.0 |
-| <a name="provider_wireguard"></a> [wireguard](#provider\_wireguard) | 0.1.3 |
+| <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | n/a |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | ~> 2.17.0 |
+| <a name="provider_http"></a> [http](#provider\_http) | n/a |
+| <a name="provider_wireguard"></a> [wireguard](#provider\_wireguard) | ~> 0.1.3 |
 
 ## Modules
 
