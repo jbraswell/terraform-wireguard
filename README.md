@@ -15,3 +15,6 @@ AWS-specific documentation [here](terraform/aws/README.md).
 
 ### DigitalOcean
 DigitalOcean-specific documentation [here](terraform/do/README.md).
+
+### Linode
+Linode-specific documentation [here](terraform/linode/README.md).
