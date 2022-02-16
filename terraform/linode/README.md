@@ -1,15 +1,18 @@
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_linode"></a> [linode](#requirement\_linode) | ~> 1.25.0 |
+| <a name="requirement_wireguard"></a> [wireguard](#requirement\_wireguard) | ~> 0.1.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_http"></a> [http](#provider\_http) | n/a |
-| <a name="provider_linode"></a> [linode](#provider\_linode) | n/a |
-| <a name="provider_random"></a> [random](#provider\_random) | n/a |
-| <a name="provider_wireguard"></a> [wireguard](#provider\_wireguard) | n/a |
+| <a name="provider_http"></a> [http](#provider\_http) | 2.1.0 |
+| <a name="provider_linode"></a> [linode](#provider\_linode) | 1.25.2 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
+| <a name="provider_wireguard"></a> [wireguard](#provider\_wireguard) | 0.1.3 |
 
 ## Modules
 
