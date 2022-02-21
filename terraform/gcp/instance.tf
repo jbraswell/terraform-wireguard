@@ -1,6 +1,6 @@
 resource "google_compute_instance" "wireguard" {
   name         = "wireguard-${terraform.workspace}"
-  machine_type = "e2-medium"
+  machine_type = "e2-small"
   zone         = "${var.region}-b"
 
   boot_disk {
