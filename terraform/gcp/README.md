@@ -38,8 +38,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_gcp_auth_file"></a> [gcp\_auth\_file](#input\_gcp\_auth\_file) | GCP authentication file. | `string` | n/a | yes |
-| <a name="input_gcp_project"></a> [gcp\_project](#input\_gcp\_project) | GCP project name. | `string` | n/a | yes |
+| <a name="input_gcp_auth_file"></a> [gcp\_auth\_file](#input\_gcp\_auth\_file) | Path to GCP authentication file. | `string` | n/a | yes |
+| <a name="input_gcp_project"></a> [gcp\_project](#input\_gcp\_project) | GCP project id. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. Valid regions at https://cloud.google.com/compute/docs/regions-zones. | `string` | n/a | yes |
 | <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | The SSH key used to access the wireguard server. | `string` | n/a | yes |
 

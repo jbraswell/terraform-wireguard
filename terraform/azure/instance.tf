@@ -34,7 +34,7 @@ resource "azurerm_resource_group" "wireguard" {
 
 resource "azurerm_virtual_network" "wireguard" {
   name                = "wireguard-${terraform.workspace}"
-  address_space       = ["10.1.0.0/16"]
+  address_space       = [var.vpc_cidr_block]
   location            = azurerm_resource_group.wireguard.location
   resource_group_name = azurerm_resource_group.wireguard.name
 }
@@ -43,11 +43,11 @@ resource "azurerm_subnet" "wireguard" {
   name                 = "wireguard-${terraform.workspace}"
   resource_group_name  = azurerm_resource_group.wireguard.name
   virtual_network_name = azurerm_virtual_network.wireguard.name
-  address_prefixes     = ["10.1.2.0/24"]
+  address_prefixes     = [cidrsubnet(var.vpc_cidr_block, 8, 0)]
 }
 
 resource "azurerm_public_ip" "wireguard" {
-  name                = "myPublicIP"
+  name                = "wireguardPublicIP"
   location            = azurerm_resource_group.wireguard.location
   resource_group_name = azurerm_resource_group.wireguard.name
   allocation_method   = "Dynamic"
