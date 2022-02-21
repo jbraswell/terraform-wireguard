@@ -43,6 +43,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. Valid regions at https://azure.microsoft.com/en-us/global-infrastructure/geographies/. | `string` | n/a | yes |
 | <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | The SSH key used to access the wireguard server. | `string` | n/a | yes |
+| <a name="input_vpc_cidr_block"></a> [vpc\_cidr\_block](#input\_vpc\_cidr\_block) | The vpc cidr block to use. | `string` | `"10.1.0.0/16"` | no |
 
 ## Outputs
 
