@@ -6,6 +6,7 @@ data "wireguard_config_document" "server" {
   private_key = wireguard_asymmetric_key.server.private_key
   listen_port = 51820
   addresses   = ["10.10.10.1/32"]
+  mtu = 1360
   post_up = [
     "sysctl -w net.ipv4.ip_forward=1",
     "sysctl -w net.ipv6.conf.all.forwarding=1",
@@ -25,6 +26,7 @@ data "wireguard_config_document" "client" {
   private_key = wireguard_asymmetric_key.client.private_key
   addresses   = ["10.10.10.2/32"]
   dns         = ["8.8.8.8"]
+  mtu = 1360
 
   peer {
     endpoint             = "${google_compute_instance.wireguard.network_interface[0].access_config[0].nat_ip}:51820"
