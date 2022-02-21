@@ -1,5 +1,6 @@
 .PHONY: docs
 docs:
+	terraform-docs markdown terraform/alicloud/ > terraform/alicloud/README.md
 	terraform-docs markdown terraform/aws/ > terraform/aws/README.md
 	terraform-docs markdown terraform/azure/ > terraform/azure/README.md
 	terraform-docs markdown terraform/do/ > terraform/do/README.md
