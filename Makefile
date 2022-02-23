@@ -8,6 +8,7 @@ docs:
 	terraform-docs markdown terraform/ibm/ > terraform/ibm/README.md
 	terraform-docs markdown terraform/linode/ > terraform/linode/README.md
 	terraform-docs markdown terraform/oci/ > terraform/oci/README.md
+	terraform-docs markdown terraform/serverspace/ > terraform/serverspace/README.md
 	terraform-docs markdown terraform/vultr/ > terraform/vultr/README.md
 
 .PHONY: fmt

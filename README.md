@@ -4,7 +4,7 @@
 Install Wireguard with the os of your choice from [WireGuard](https://www.wireguard.com/install/).
 
 ## How to use
-Whether targeting AlibabaCloud, AWS, Azure, DigitalOcean, GCP, IBM, Linode, Oracle or Vultr, the general steps are as follows:
+Whether targeting AlibabaCloud, AWS, Azure, DigitalOcean, GCP, IBM, Linode, Oracle, Serverspace or Vultr, the general steps are as follows:
 
 1. Create a `settings.auto.tfvars` with the `ssh_public_key` and `region` variables set.
 2. Run `terraform apply`, and copy/paste the `client_config` output into your Wireguard tunnel configuration.
@@ -34,6 +34,9 @@ Linode-specific documentation [here](terraform/linode/README.md).
 
 ### OCI
 OCI-specific documentation [here](terraform/oci/README.md).
+
+### Serverspace
+Serverspace-specific documentation [here](terraform/serverspace/README.md).
 
 ### Vultr
 Vultr-specific documentation [here](terraform/vultr/README.md).
