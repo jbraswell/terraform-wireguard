@@ -38,6 +38,9 @@ Linode-specific documentation [here](terraform/linode/README.md).
 ### OCI
 OCI-specific documentation [here](terraform/oci/README.md).
 
+### Upcloud
+Upcloud-specific documentation [here](terraform/upcloud/README.md).
+
 ### Serverspace
 Serverspace-specific documentation [here](terraform/serverspace/README.md).
 
