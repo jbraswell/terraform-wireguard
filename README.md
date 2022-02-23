@@ -29,6 +29,9 @@ GCP-specific documentation [here](terraform/gcp/README.md).
 ### Generic
 Generic-specific documentation [here](terraform/generic/README.md).
 
+### Hetzner
+Hetzner-specific documentation [here](terraform/hetzner/README.md).
+
 ### IBM
 IBM-specific documentation [here](terraform/ibm/README.md).
 
