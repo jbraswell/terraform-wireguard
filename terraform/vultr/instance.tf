@@ -66,4 +66,3 @@ EOF
     content      = templatefile("${path.module}/../configure-server.sh.tftpl", { wg0_conf = data.wireguard_config_document.server.conf })
   }
 }
-

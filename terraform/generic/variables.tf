@@ -4,12 +4,6 @@ variable "private_key_path" {
   default     = "~/.ssh/id_rsa"
 }
 
-variable "nic" {
-  type        = string
-  description = "The network interface to use on instance."
-  default     = "eth0"
-}
-
 variable "ssh_user" {
   type        = string
   description = "The ssh user for instance."
