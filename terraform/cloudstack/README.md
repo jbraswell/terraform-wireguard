@@ -41,7 +41,9 @@ No modules.
 | <a name="input_api_url"></a> [api\_url](#input\_api\_url) | Cloudstack api url. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. The cloudstack zone to deploy to. | `string` | n/a | yes |
 | <a name="input_secret_key"></a> [secret\_key](#input\_secret\_key) | Cloudstack secret key. | `string` | n/a | yes |
+| <a name="input_service_offering"></a> [service\_offering](#input\_service\_offering) | Cloudstack service offering (instance type). | `string` | n/a | yes |
 | <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | The SSH key used to access the wireguard server. | `string` | n/a | yes |
+| <a name="input_template"></a> [template](#input\_template) | Cloudstack template (image). | `string` | `"Linux Ubuntu 20.04 LTS 64-bit"` | no |
 
 ## Outputs
 

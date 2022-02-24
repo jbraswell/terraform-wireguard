@@ -43,6 +43,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_auth_url"></a> [auth\_url](#input\_auth\_url) | OpenStack auth url. | `string` | n/a | yes |
+| <a name="input_flavor_name"></a> [flavor\_name](#input\_flavor\_name) | OpenStack flavor name (instance type). | `string` | n/a | yes |
+| <a name="input_image_name"></a> [image\_name](#input\_image\_name) | OpenStack image name. | `string` | `"Ubuntu 20.04"` | no |
 | <a name="input_password"></a> [password](#input\_password) | OpenStack password. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. The OpenStack zone to deploy to, tested with DreamCompute. | `string` | n/a | yes |
 | <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | The SSH key used to access the wireguard server. | `string` | n/a | yes |
