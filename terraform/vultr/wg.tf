@@ -9,10 +9,10 @@ data "wireguard_config_document" "server" {
   post_up = [
     "sysctl -w net.ipv4.ip_forward=1",
     "sysctl -w net.ipv6.conf.all.forwarding=1",
-    "iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE",
+    "iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o $nic -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o $nic -j MASQUERADE",
   ]
   post_down = [
-    "iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o enp1s0 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o enp1s0 -j MASQUERADE",
+    "iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o $nic -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o $nic -j MASQUERADE",
   ]
 
   peer {

@@ -10,12 +10,12 @@ data "wireguard_config_document" "server" {
   post_up = [
     "sysctl -w net.ipv4.ip_forward=1",
     "sysctl -w net.ipv6.conf.all.forwarding=1",
-    "iptables -t nat -I POSTROUTING 1 -o ens3 -j MASQUERADE; iptables -I INPUT 1 -i wg0 -j ACCEPT; iptables -I FORWARD 1 -i ens3 -o wg0 -j ACCEPT; iptables -I FORWARD 1 -i wg0 -o ens3 -j ACCEPT; iptables -I INPUT 1 -i ens3 -p udp --dport 51820 -j ACCEPT",
-    "ip6tables -t nat -I POSTROUTING 1 -o ens3 -j MASQUERADE; ip6tables -I INPUT 1 -i wg0 -j ACCEPT; ip6tables -I FORWARD 1 -i ens3 -o wg0 -j ACCEPT; ip6tables -I FORWARD 1 -i wg0 -o ens3 -j ACCEPT",
+    "iptables -t nat -I POSTROUTING 1 -o $nic -j MASQUERADE; iptables -I INPUT 1 -i wg0 -j ACCEPT; iptables -I FORWARD 1 -i $nic -o wg0 -j ACCEPT; iptables -I FORWARD 1 -i wg0 -o $nic -j ACCEPT; iptables -I INPUT 1 -i $nic -p udp --dport 51820 -j ACCEPT",
+    "ip6tables -t nat -I POSTROUTING 1 -o $nic -j MASQUERADE; ip6tables -I INPUT 1 -i wg0 -j ACCEPT; ip6tables -I FORWARD 1 -i $nic -o wg0 -j ACCEPT; ip6tables -I FORWARD 1 -i wg0 -o $nic -j ACCEPT",
   ]
   post_down = [
-    "iptables -t nat -D POSTROUTING -o ens3 -j MASQUERADE; iptables -D INPUT -i wg0 -j ACCEPT; iptables -D FORWARD -i ens3 -o wg0 -j ACCEPT; iptables -D FORWARD -i wg0 -o ens3 -j ACCEPT; iptables -D INPUT -i ens3 -p udp --dport 51820 -j ACCEPT",
-    "ip6tables -t nat -D POSTROUTING -o ens3 -j MASQUERADE; ip6tables -D INPUT -i wg0 -j ACCEPT; ip6tables -D FORWARD -i ens3 -o wg0 -j ACCEPT; ip6tables -D FORWARD -i wg0 -o ens3 -j ACCEPT",
+    "iptables -t nat -D POSTROUTING -o $nic -j MASQUERADE; iptables -D INPUT -i wg0 -j ACCEPT; iptables -D FORWARD -i $nic -o wg0 -j ACCEPT; iptables -D FORWARD -i wg0 -o $nic -j ACCEPT; iptables -D INPUT -i $nic -p udp --dport 51820 -j ACCEPT",
+    "ip6tables -t nat -D POSTROUTING -o $nic -j MASQUERADE; ip6tables -D INPUT -i wg0 -j ACCEPT; ip6tables -D FORWARD -i $nic -o wg0 -j ACCEPT; ip6tables -D FORWARD -i wg0 -o $nic -j ACCEPT",
   ]
 
   peer {

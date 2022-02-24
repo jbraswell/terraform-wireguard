@@ -37,7 +37,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_nic"></a> [nic](#input\_nic) | The network interface to use on instance. | `string` | `"eth0"` | no |
 | <a name="input_private_key_path"></a> [private\_key\_path](#input\_private\_key\_path) | The path to your private key for remote-exec. | `string` | `"~/.ssh/id_rsa"` | no |
 | <a name="input_public_ip"></a> [public\_ip](#input\_public\_ip) | The public ip of instance. | `string` | n/a | yes |
 | <a name="input_ssh_user"></a> [ssh\_user](#input\_ssh\_user) | The ssh user for instance. | `string` | `"root"` | no |
