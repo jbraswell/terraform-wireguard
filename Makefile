@@ -3,7 +3,9 @@ docs:
 	terraform-docs markdown terraform/alicloud/ > terraform/alicloud/README.md
 	terraform-docs markdown terraform/aws/ > terraform/aws/README.md
 	terraform-docs markdown terraform/azure/ > terraform/azure/README.md
+	terraform-docs markdown terraform/cloudstack/ > terraform/cloudstack/README.md
 	terraform-docs markdown terraform/do/ > terraform/do/README.md
+	terraform-docs markdown terraform/exoscale/ > terraform/exoscale/README.md
 	terraform-docs markdown terraform/gcp/ > terraform/gcp/README.md
 	terraform-docs markdown terraform/generic/ > terraform/generic/README.md
 	terraform-docs markdown terraform/hetzner/ > terraform/hetzner/README.md
