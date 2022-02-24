@@ -20,8 +20,14 @@ AWS-specific documentation [here](terraform/aws/README.md).
 ### Azure
 Azure-specific documentation [here](terraform/azure/README.md).
 
+### CloudStack
+CloudStack-specific documentation [here](terraform/cloudstack/README.md).
+
 ### DigitalOcean
 DigitalOcean-specific documentation [here](terraform/do/README.md).
+
+### Exoscale
+Exoscale-specific documentation [here](terraform/exoscale/README.md).
 
 ### GCP
 GCP-specific documentation [here](terraform/gcp/README.md).
