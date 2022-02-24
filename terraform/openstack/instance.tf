@@ -1,7 +1,7 @@
 resource "openstack_compute_instance_v2" "wireguard" {
   name              = "wireguard-${terraform.workspace}"
   image_id          = data.openstack_images_image_v2.ubuntu.id
-  flavor_name       = "gp1.subsonic"
+  flavor_name       = var.flavor_name
   availability_zone = data.openstack_compute_availability_zones_v2.zones.names[0]
   key_pair          = openstack_compute_keypair_v2.wireguard.id
   security_groups   = [openstack_networking_secgroup_v2.wireguard.name]
@@ -54,7 +54,7 @@ resource "openstack_networking_secgroup_rule_v2" "egress_udp" {
 }
 
 data "openstack_images_image_v2" "ubuntu" {
-  name        = "Ubuntu-20.04"
+  name        = var.image_name
   most_recent = true
 }
 

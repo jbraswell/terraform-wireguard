@@ -1,7 +1,7 @@
 resource "cloudstack_instance" "wireguard" {
   name               = "wireguard-${terraform.workspace}"
-  service_offering   = "Tiny"
-  template           = "Linux Ubuntu 20.04 LTS 64-bit"
+  service_offering   = var.service_offering
+  template           = var.template
   zone               = var.region
   security_group_ids = [cloudstack_security_group.wireguard.id]
   keypair            = cloudstack_ssh_keypair.wireguard.id

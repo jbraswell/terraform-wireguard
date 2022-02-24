@@ -32,3 +32,14 @@ variable "tenant_id" {
   type        = string
   description = "OpenStack tenant id."
 }
+
+variable "flavor_name" {
+  type        = string
+  description = "OpenStack flavor name (instance type)."
+}
+
+variable "image_name" {
+  type        = string
+  description = "OpenStack image name."
+  default     = "Ubuntu 20.04"
+}
