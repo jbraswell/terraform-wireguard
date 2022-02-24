@@ -12,3 +12,9 @@ variable "do_token" {
   type        = string
   description = "DigitalOcean authentication token."
 }
+
+variable "clients" {
+  type        = list(string)
+  description = "List of clients names."
+  default     = ["default"]
+}
