@@ -12,6 +12,7 @@ docs:
 	terraform-docs markdown terraform/ibm/ > terraform/ibm/README.md
 	terraform-docs markdown terraform/linode/ > terraform/linode/README.md
 	terraform-docs markdown terraform/oci/ > terraform/oci/README.md
+	terraform-docs markdown terraform/openstack/ > terraform/openstack/README.md
 	terraform-docs markdown terraform/upcloud/ > terraform/upcloud/README.md
 	terraform-docs markdown terraform/scaleway/ > terraform/scaleway/README.md
 	terraform-docs markdown terraform/serverspace/ > terraform/serverspace/README.md

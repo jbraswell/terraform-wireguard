@@ -44,6 +44,9 @@ IBM-specific documentation [here](terraform/ibm/README.md).
 ### Linode
 Linode-specific documentation [here](terraform/linode/README.md).
 
+### OpenStack
+OpenStack-specific documentation [here](terraform/openstack/README.md).
+
 ### OCI
 OCI-specific documentation [here](terraform/oci/README.md).
 
