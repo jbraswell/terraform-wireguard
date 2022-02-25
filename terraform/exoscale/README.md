@@ -23,6 +23,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [exoscale_compute_instance.wireguard](https://registry.terraform.io/providers/exoscale/exoscale/latest/docs/resources/compute_instance) | resource |
+| [exoscale_elastic_ip.wireguard](https://registry.terraform.io/providers/exoscale/exoscale/latest/docs/resources/elastic_ip) | resource |
 | [exoscale_security_group.wireguard](https://registry.terraform.io/providers/exoscale/exoscale/latest/docs/resources/security_group) | resource |
 | [exoscale_security_group_rules.wireguard](https://registry.terraform.io/providers/exoscale/exoscale/latest/docs/resources/security_group_rules) | resource |
 | [exoscale_ssh_key.wireguard](https://registry.terraform.io/providers/exoscale/exoscale/latest/docs/resources/ssh_key) | resource |
@@ -39,6 +40,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_api_key"></a> [api\_key](#input\_api\_key) | Cloudstack access key. | `string` | n/a | yes |
+| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2",<br>  "home": "10.10.10.3"<br>}</pre> | no |
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. .Valid regions at https://www.exoscale.com/datacenters/ | `string` | n/a | yes |
 | <a name="input_secret_key"></a> [secret\_key](#input\_secret\_key) | Cloudstack secret key. | `string` | n/a | yes |
 | <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | The SSH key used to access the wireguard server. | `string` | n/a | yes |
@@ -48,3 +50,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_client_config"></a> [client\_config](#output\_client\_config) | Client configuration. |
+| <a name="output_client_config_qr_codes"></a> [client\_config\_qr\_codes](#output\_client\_config\_qr\_codes) | Client configuration qr code links. |
