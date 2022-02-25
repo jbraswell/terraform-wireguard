@@ -41,6 +41,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2",<br>  "mobile": "10.10.10.3"<br>}</pre> | no |
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. Valid regions at https://azure.microsoft.com/en-us/global-infrastructure/geographies/. | `string` | n/a | yes |
 | <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | The SSH key used to access the wireguard server. | `string` | n/a | yes |
 | <a name="input_vpc_cidr_block"></a> [vpc\_cidr\_block](#input\_vpc\_cidr\_block) | The vpc cidr block to use. | `string` | `"10.1.0.0/16"` | no |
@@ -50,3 +51,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_client_config"></a> [client\_config](#output\_client\_config) | Client configuration. |
+| <a name="output_client_config_qr_codes"></a> [client\_config\_qr\_codes](#output\_client\_config\_qr\_codes) | Client configuration qr code links. |

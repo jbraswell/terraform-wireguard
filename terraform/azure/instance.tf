@@ -50,7 +50,7 @@ resource "azurerm_public_ip" "wireguard" {
   name                = "wireguardPublicIP"
   location            = azurerm_resource_group.wireguard.location
   resource_group_name = azurerm_resource_group.wireguard.name
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
 }
 
 resource "azurerm_network_security_group" "wireguard" {
@@ -95,7 +95,7 @@ resource "azurerm_network_interface" "wireguard" {
   enable_ip_forwarding = true
 
   ip_configuration {
-    name                          = "wireguardPublic"
+    name                          = "wireguard-${terraform.workspace}"
     subnet_id                     = azurerm_subnet.wireguard.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.wireguard.id
