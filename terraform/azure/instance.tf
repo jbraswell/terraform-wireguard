@@ -79,7 +79,7 @@ resource "azurerm_network_security_group" "wireguard" {
     destination_port_range     = "51820"
     destination_address_prefix = "*"
     source_port_range          = "*"
-    source_address_prefix      = local.myip
+    source_address_prefix      = "0.0.0.0/0"
   }
 }
 

@@ -5,8 +5,22 @@ resource "exoscale_compute_instance" "wireguard" {
   template_id        = data.exoscale_compute_template.ubuntu.id
   disk_size          = 10
   security_group_ids = [exoscale_security_group.wireguard.id]
+  elastic_ip_ids     = [exoscale_elastic_ip.wireguard.id]
   ssh_key            = exoscale_ssh_key.wireguard.id
   user_data          = data.cloudinit_config.wireguard.rendered
+}
+
+resource "exoscale_elastic_ip" "wireguard" {
+  zone = var.region
+
+  healthcheck {
+    mode         = "tcp"
+    port         = 22
+    interval     = 5
+    timeout      = 3
+    strikes_ok   = 2
+    strikes_fail = 3
+  }
 }
 
 resource "exoscale_security_group" "wireguard" {
@@ -27,7 +41,7 @@ resource "exoscale_security_group_rules" "wireguard" {
   ingress {
     protocol  = "UDP"
     ports     = ["51820"]
-    cidr_list = [local.myip]
+    cidr_list = ["0.0.0.0/0"]
   }
 
   egress {
