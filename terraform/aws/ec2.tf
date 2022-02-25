@@ -1,15 +1,23 @@
 resource "aws_instance" "wireguard" {
-  ami                         = data.aws_ami.ubuntu.id
-  subnet_id                   = tolist(data.aws_subnet_ids.subnets.ids)[0]
-  instance_type               = "t3.nano"
-  key_name                    = aws_key_pair.wireguard.key_name
-  vpc_security_group_ids      = [aws_security_group.wireguard.id]
-  associate_public_ip_address = true
-  user_data                   = data.cloudinit_config.wireguard.rendered
+  ami                    = data.aws_ami.ubuntu.id
+  subnet_id              = tolist(data.aws_subnet_ids.subnets.ids)[0]
+  instance_type          = "t3.nano"
+  key_name               = aws_key_pair.wireguard.key_name
+  vpc_security_group_ids = [aws_security_group.wireguard.id]
+  user_data              = data.cloudinit_config.wireguard.rendered
 
   tags = {
     Name = "wireguard"
   }
+}
+
+resource "aws_eip" "wireguard" {
+  vpc = true
+}
+
+resource "aws_eip_association" "wireguard" {
+  instance_id   = aws_instance.wireguard.id
+  allocation_id = aws_eip.wireguard.id
 }
 
 resource "aws_security_group" "wireguard" {
@@ -20,7 +28,7 @@ resource "aws_security_group" "wireguard" {
     from_port   = 51820
     to_port     = 51820
     protocol    = "UDP"
-    cidr_blocks = [local.myip]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {

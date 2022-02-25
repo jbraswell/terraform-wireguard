@@ -7,6 +7,15 @@ resource "digitalocean_droplet" "wireguard" {
   user_data = data.cloudinit_config.wireguard.rendered
 }
 
+resource "digitalocean_floating_ip" "wireguard" {
+  region = digitalocean_droplet.wireguard.region
+}
+
+resource "digitalocean_floating_ip_assignment" "wireguard" {
+  ip_address = digitalocean_floating_ip.wireguard.ip_address
+  droplet_id = digitalocean_droplet.wireguard.id
+}
+
 resource "digitalocean_firewall" "wireguard" {
   name = "wireguard-${terraform.workspace}"
 
@@ -21,7 +30,7 @@ resource "digitalocean_firewall" "wireguard" {
   inbound_rule {
     protocol         = "udp"
     port_range       = "51820"
-    source_addresses = [local.myip]
+    source_addresses = ["0.0.0.0/0"]
   }
 
   outbound_rule {
