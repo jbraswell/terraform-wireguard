@@ -24,6 +24,8 @@ No modules.
 |------|------|
 | [digitalocean_droplet.wireguard](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) | resource |
 | [digitalocean_firewall.wireguard](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall) | resource |
+| [digitalocean_floating_ip.wireguard](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip) | resource |
+| [digitalocean_floating_ip_assignment.wireguard](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/floating_ip_assignment) | resource |
 | [digitalocean_ssh_key.wireguard](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/ssh_key) | resource |
 | [wireguard_asymmetric_key.client](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/resources/asymmetric_key) | resource |
 | [wireguard_asymmetric_key.server](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/resources/asymmetric_key) | resource |
@@ -36,6 +38,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2"<br>}</pre> | no |
 | <a name="input_do_token"></a> [do\_token](#input\_do\_token) | DigitalOcean authentication token. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. Valid regions at https://docs.digitalocean.com/products/platform/availability-matrix/. | `string` | n/a | yes |
 | <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | The SSH key used to access the wireguard server. | `string` | n/a | yes |
@@ -45,3 +48,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_client_config"></a> [client\_config](#output\_client\_config) | Client configuration. |
+| <a name="output_client_config_qr_codes"></a> [client\_config\_qr\_codes](#output\_client\_config\_qr\_codes) | Client configuration qr code links. |
