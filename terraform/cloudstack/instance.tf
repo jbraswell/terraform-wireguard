@@ -27,7 +27,7 @@ resource "cloudstack_security_group_rule" "wireguard" {
     protocol     = "udp"
     ports        = ["51820"]
     traffic_type = "ingress"
-    cidr_list    = [local.myip]
+    cidr_list    = ["0.0.0.0/0"]
   }
 
   rule {
