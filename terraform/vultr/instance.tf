@@ -31,7 +31,7 @@ resource "vultr_firewall_rule" "wireguard" {
   protocol          = "udp"
   ip_type           = "v4"
   subnet            = "0.0.0.0"
-  subnet_size       = 32
+  subnet_size       = 0
   port              = "51820"
   notes             = "wireguard"
 }
