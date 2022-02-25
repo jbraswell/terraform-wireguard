@@ -1,4 +1,4 @@
 output "client_config" {
-  value       = data.wireguard_config_document.client.conf
+  value       = { for k, v in data.wireguard_config_document.client : k => v.conf }
   description = "Client configuration."
 }
