@@ -11,12 +11,12 @@ resource "vultr_instance" "wireguard" {
   region            = var.region
   os_id             = data.vultr_os.ubuntu.id
   ssh_key_ids       = [vultr_ssh_key.wireguard.id]
-  reserved_ip_id    = vultr_reserved_ip.my_reserved_ip.id
+  reserved_ip_id    = vultr_reserved_ip.wireguard.id
   firewall_group_id = vultr_firewall_group.wireguard.id
   user_data         = data.cloudinit_config.wireguard.rendered
 }
 
-resource "vultr_reserved_ip" "my_reserved_ip" {
+resource "vultr_reserved_ip" "wireguard" {
   label   = "wireguard-${terraform.workspace}"
   region  = var.region
   ip_type = "v4"
