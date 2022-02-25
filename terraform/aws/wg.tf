@@ -19,7 +19,6 @@ data "wireguard_config_document" "server" {
 
   dynamic "peer" {
     for_each = var.clients
-
     content {
       public_key  = wireguard_asymmetric_key.client[peer.key].public_key
       allowed_ips = ["${peer.value}/32"]
