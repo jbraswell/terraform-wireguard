@@ -8,8 +8,12 @@ resource "digitalocean_droplet" "wireguard" {
 }
 
 resource "digitalocean_floating_ip" "wireguard" {
+  region = digitalocean_droplet.wireguard.region
+}
+
+resource "digitalocean_floating_ip_assignment" "wireguard" {
+  ip_address = digitalocean_floating_ip.wireguard.ip_address
   droplet_id = digitalocean_droplet.wireguard.id
-  region     = digitalocean_droplet.wireguard.region
 }
 
 resource "digitalocean_firewall" "wireguard" {

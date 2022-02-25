@@ -1,7 +1,7 @@
 resource "wireguard_asymmetric_key" "server" {}
 
 resource "wireguard_asymmetric_key" "client" {
-  for_each = toset(var.clients)
+  for_each = var.clients
 }
 
 data "wireguard_config_document" "server" {
@@ -18,18 +18,18 @@ data "wireguard_config_document" "server" {
   ]
 
   dynamic "peer" {
-    for_each = toset(var.clients)
+    for_each = var.clients
     content {
       public_key  = wireguard_asymmetric_key.client[peer.key].public_key
-      allowed_ips = [peer.key]
+      allowed_ips = ["${peer.value}/32"]
     }
   }
 }
 
 data "wireguard_config_document" "client" {
-  for_each    = toset(var.clients)
+  for_each    = var.clients
   private_key = wireguard_asymmetric_key.client[each.key].private_key
-  addresses   = ["10.10.10.2/32"]
+  addresses   = ["${each.value}/32"]
   dns         = ["8.8.8.8"]
 
   peer {
