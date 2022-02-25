@@ -41,7 +41,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_api_key"></a> [api\_key](#input\_api\_key) | Cloudstack access key. | `string` | n/a | yes |
 | <a name="input_api_url"></a> [api\_url](#input\_api\_url) | Cloudstack api url. | `string` | n/a | yes |
-| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2",<br>  "home": "10.10.10.3"<br>}</pre> | no |
+| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2"<br>}</pre> | no |
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. The cloudstack zone to deploy to. | `string` | n/a | yes |
 | <a name="input_secret_key"></a> [secret\_key](#input\_secret\_key) | Cloudstack secret key. | `string` | n/a | yes |
 | <a name="input_service_offering"></a> [service\_offering](#input\_service\_offering) | Cloudstack service offering (instance type). | `string` | n/a | yes |
