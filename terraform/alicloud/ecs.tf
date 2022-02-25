@@ -33,7 +33,7 @@ resource "alicloud_security_group_rule" "allow_wireguard_ingress" {
   port_range        = "51820/51820"
   priority          = 2
   security_group_id = alicloud_security_group.wireguard.id
-  cidr_ip           = local.myip
+  cidr_ip           = "0.0.0.0/0"
 }
 
 resource "alicloud_security_group_rule" "allow_all_egress" {
