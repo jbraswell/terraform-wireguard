@@ -5,5 +5,5 @@ output "client_config" {
 
 output "client_config_qr_codes" {
   value       = { for k, v in data.external.qr : k => v.result.code }
-  description = "Client configuration qr code links."
+  description = "Client configuration qr codes."
 }
