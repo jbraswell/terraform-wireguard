@@ -31,7 +31,7 @@ resource "linode_firewall" "wireguard" {
     action   = "ACCEPT"
     protocol = "UDP"
     ports    = "51820"
-    ipv4     = [local.myip]
+    ipv4     = ["0.0.0.0/0"]
   }
 }
 
