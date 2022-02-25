@@ -1,6 +1,8 @@
 resource "wireguard_asymmetric_key" "server" {}
 
-resource "wireguard_asymmetric_key" "client" {}
+resource "wireguard_asymmetric_key" "client" {
+  for_each = var.clients
+}
 
 data "wireguard_config_document" "server" {
   private_key = wireguard_asymmetric_key.server.private_key
@@ -16,17 +18,21 @@ data "wireguard_config_document" "server" {
     "iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o $nic -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o $nic -j MASQUERADE",
   ]
 
-  peer {
-    public_key  = wireguard_asymmetric_key.client.public_key
-    allowed_ips = ["10.10.10.2/32"]
+  dynamic "peer" {
+    for_each = var.clients
+    content {
+      public_key  = wireguard_asymmetric_key.client[peer.key].public_key
+      allowed_ips = ["${peer.value}/32"]
+    }
   }
 }
 
 data "wireguard_config_document" "client" {
-  private_key = wireguard_asymmetric_key.client.private_key
-  addresses   = ["10.10.10.2/32"]
+  for_each    = var.clients
+  private_key = wireguard_asymmetric_key.client[each.key].private_key
+  addresses   = ["${each.value}/32"]
   dns         = ["8.8.8.8"]
-  mtu         = 1360
+  mtu = 1360
 
   peer {
     endpoint             = "${google_compute_instance.wireguard.network_interface[0].access_config[0].nat_ip}:51820"

@@ -11,15 +11,26 @@ resource "google_compute_instance" "wireguard" {
 
   network_interface {
     network = "default"
-    access_config {}
+    access_config {
+      nat_ip = google_compute_address.wireguard.address
+    }
   }
 
   metadata = {
-    ssh-keys  = "wireguard:${var.ssh_public_key}"
-    user-data = data.cloudinit_config.wireguard.rendered
+    ssh-keys = "wireguard:${var.ssh_public_key}"
   }
 
+  metadata_startup_script = <<EOF
+#!/bin/bash
+apt-get -y update && apt-get -y install wireguard
+${templatefile("${path.module}/../configure-server.sh.tftpl", { wg0_conf = data.wireguard_config_document.server.conf })}
+EOF
+
   tags = ["wireguard-${terraform.workspace}"]
+}
+
+resource "google_compute_address" "wireguard" {
+  name = "wireguard-${terraform.workspace}"
 }
 
 resource "google_compute_firewall" "ssh" {
@@ -45,7 +56,7 @@ resource "google_compute_firewall" "wireguard" {
     ports    = ["51820"]
   }
 
-  source_ranges = [local.myip]
+  source_ranges = ["0.0.0.0/0"]
   target_tags   = ["wireguard-${terraform.workspace}"]
 }
 
@@ -66,26 +77,6 @@ resource "google_compute_firewall" "egress" {
 
   destination_ranges = ["0.0.0.0/0"]
   target_tags        = ["wireguard-${terraform.workspace}"]
-}
-
-data "cloudinit_config" "wireguard" {
-  gzip          = false
-  base64_encode = false
-
-  part {
-    content_type = "text/cloud-config"
-    content      = <<EOF
-#cloud-config
-
-packages:
-  - wireguard
-EOF
-  }
-
-  part {
-    content_type = "text/x-shellscript"
-    content      = templatefile("${path.module}/../configure-server.sh.tftpl", { wg0_conf = data.wireguard_config_document.server.conf })
-  }
 }
 
 data "google_compute_image" "ubuntu" {
