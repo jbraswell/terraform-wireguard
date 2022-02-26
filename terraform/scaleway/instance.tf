@@ -27,6 +27,7 @@ resource "scaleway_instance_security_group" "wireguard" {
     action   = "accept"
     protocol = "UDP"
     port     = "51820"
+    ip_range = "0.0.0.0/0"
   }
 
   outbound_rule {
