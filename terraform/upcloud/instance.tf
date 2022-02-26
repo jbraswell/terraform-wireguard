@@ -49,7 +49,7 @@ resource "upcloud_firewall_rules" "wireguard" {
     direction              = "in"
     family                 = "IPv4"
     protocol               = "udp"
-    source_address_end     = local.myip
-    source_address_start   = local.myip
+    source_address_end     = "0.0.0.0"
+    source_address_start   = "0.0.0.0"
   }
 }
