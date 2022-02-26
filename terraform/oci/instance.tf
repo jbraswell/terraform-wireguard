@@ -1,17 +1,3 @@
-resource "oci_identity_compartment" "wireguard" {
-  compartment_id = var.tenancy_ocid
-  description    = "Compartment for Wireguard Terraform resources."
-  name           = "wireguard-${terraform.workspace}"
-}
-
-data "oci_identity_availability_domains" "wireguard" {
-  compartment_id = oci_identity_compartment.wireguard.id
-}
-
-data "oci_identity_availability_domains" "yolo" {
-  compartment_id = var.tenancy_ocid
-}
-
 resource "oci_core_instance" "wireguard" {
   availability_domain = oci_core_subnet.wireguard.availability_domain
   compartment_id      = oci_identity_compartment.wireguard.id
@@ -19,7 +5,7 @@ resource "oci_core_instance" "wireguard" {
   shape               = "VM.Standard2.1"
 
   create_vnic_details {
-    assign_public_ip = true
+    assign_public_ip = false
     display_name     = "eth01"
     hostname_label   = "wireguard"
     subnet_id        = oci_core_subnet.wireguard.id
@@ -34,6 +20,37 @@ resource "oci_core_instance" "wireguard" {
     source_type = "image"
     source_id   = data.oci_core_images.ubuntu_focal.images.0.id
   }
+}
+
+resource "oci_core_public_ip" "wireguard" {
+  compartment_id = oci_identity_compartment.wireguard.id
+  display_name   = "wireguard-${terraform.workspace}"
+  lifetime       = "RESERVED"
+  private_ip_id  = data.oci_core_private_ips.wireguard.private_ips[0]["id"]
+}
+
+data "oci_core_vnic_attachments" "wireguard" {
+  compartment_id      = oci_identity_compartment.wireguard.id
+  availability_domain = data.oci_identity_availability_domains.wireguard.availability_domains[0].name
+  instance_id         = oci_core_instance.wireguard.id
+}
+
+data "oci_core_vnic" "wireguard" {
+  vnic_id = data.oci_core_vnic_attachments.wireguard.vnic_attachments[0]["vnic_id"]
+}
+
+data "oci_core_private_ips" "wireguard" {
+  vnic_id = data.oci_core_vnic.wireguard.id
+}
+
+resource "oci_identity_compartment" "wireguard" {
+  compartment_id = var.tenancy_ocid
+  description    = "Compartment for Wireguard Terraform resources."
+  name           = "wireguard-${terraform.workspace}"
+}
+
+data "oci_identity_availability_domains" "wireguard" {
+  compartment_id = oci_identity_compartment.wireguard.id
 }
 
 resource "oci_core_vcn" "wireguard" {
@@ -69,7 +86,7 @@ resource "oci_core_security_list" "wireguard" {
   }
   ingress_security_rules {
     protocol = "17"
-    source   = local.myip
+    source   = "0.0.0.0/0"
 
     udp_options {
       min = 51820

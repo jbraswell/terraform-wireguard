@@ -37,7 +37,7 @@ resource "ibm_is_security_group_rule" "ssh" {
 resource "ibm_is_security_group_rule" "wireguard" {
   group     = ibm_is_security_group.wireguard.id
   direction = "inbound"
-  remote    = local.myip
+  remote    = "0.0.0.0/0"
   udp {
     port_min = 51820
     port_max = 51820
