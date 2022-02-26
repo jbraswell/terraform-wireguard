@@ -29,12 +29,12 @@ resource "openstack_networking_secgroup_rule_v2" "wireguard" {
   protocol          = "udp"
   port_range_min    = 51820
   port_range_max    = 51820
-  remote_ip_prefix  = local.myip
+  remote_ip_prefix  = "0.0.0.0/0"
   security_group_id = openstack_networking_secgroup_v2.wireguard.id
 }
 
 resource "openstack_networking_secgroup_rule_v2" "egress_tcp" {
-  direction         = "ingress"
+  direction         = "egress"
   ethertype         = "IPv4"
   protocol          = "tcp"
   port_range_min    = 1
@@ -44,7 +44,7 @@ resource "openstack_networking_secgroup_rule_v2" "egress_tcp" {
 }
 
 resource "openstack_networking_secgroup_rule_v2" "egress_udp" {
-  direction         = "ingress"
+  direction         = "egress"
   ethertype         = "IPv4"
   protocol          = "udp"
   port_range_min    = 1

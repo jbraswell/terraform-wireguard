@@ -10,6 +10,7 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | 2.2.0 |
+| <a name="provider_external"></a> [external](#provider\_external) | 2.2.0 |
 | <a name="provider_http"></a> [http](#provider\_http) | 2.1.0 |
 | <a name="provider_openstack"></a> [openstack](#provider\_openstack) | 1.47.0 |
 | <a name="provider_wireguard"></a> [wireguard](#provider\_wireguard) | 0.1.3 |
@@ -32,6 +33,7 @@ No modules.
 | [wireguard_asymmetric_key.client](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/resources/asymmetric_key) | resource |
 | [wireguard_asymmetric_key.server](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/resources/asymmetric_key) | resource |
 | [cloudinit_config.wireguard](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/data-sources/config) | data source |
+| [external_external.qr](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 | [http_http.ip](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [openstack_compute_availability_zones_v2.zones](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/data-sources/compute_availability_zones_v2) | data source |
 | [openstack_images_image_v2.ubuntu](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/data-sources/images_image_v2) | data source |
@@ -43,6 +45,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_auth_url"></a> [auth\_url](#input\_auth\_url) | OpenStack auth url. | `string` | n/a | yes |
+| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2",<br>  "home": "10.10.10.3"<br>}</pre> | no |
 | <a name="input_flavor_name"></a> [flavor\_name](#input\_flavor\_name) | OpenStack flavor name (instance type). | `string` | n/a | yes |
 | <a name="input_image_name"></a> [image\_name](#input\_image\_name) | OpenStack image name. | `string` | `"Ubuntu 20.04"` | no |
 | <a name="input_password"></a> [password](#input\_password) | OpenStack password. | `string` | n/a | yes |
@@ -57,3 +60,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_client_config"></a> [client\_config](#output\_client\_config) | Client configuration. |
+| <a name="output_client_config_qr_codes"></a> [client\_config\_qr\_codes](#output\_client\_config\_qr\_codes) | Client configuration qr codes. |
