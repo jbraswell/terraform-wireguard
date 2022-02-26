@@ -21,7 +21,7 @@ resource "hcloud_firewall" "wireguard" {
     direction  = "in"
     protocol   = "udp"
     port       = "51820"
-    source_ips = [local.myip]
+    source_ips = ["0.0.0.0/0"]
   }
 }
 
