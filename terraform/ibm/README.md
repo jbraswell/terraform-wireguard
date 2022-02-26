@@ -10,6 +10,7 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | 2.2.0 |
+| <a name="provider_external"></a> [external](#provider\_external) | 2.2.0 |
 | <a name="provider_http"></a> [http](#provider\_http) | 2.1.0 |
 | <a name="provider_ibm"></a> [ibm](#provider\_ibm) | 1.38.2 |
 | <a name="provider_wireguard"></a> [wireguard](#provider\_wireguard) | 0.1.3 |
@@ -36,6 +37,7 @@ No modules.
 | [wireguard_asymmetric_key.client](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/resources/asymmetric_key) | resource |
 | [wireguard_asymmetric_key.server](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/resources/asymmetric_key) | resource |
 | [cloudinit_config.wireguard](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/data-sources/config) | data source |
+| [external_external.qr](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 | [http_http.ip](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [ibm_is_image.ubuntu](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image) | data source |
 | [wireguard_config_document.client](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/data-sources/config_document) | data source |
@@ -45,6 +47,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2",<br>  "main": "10.10.10.3"<br>}</pre> | no |
 | <a name="input_iaas_classic_api_key"></a> [iaas\_classic\_api\_key](#input\_iaas\_classic\_api\_key) | The classic api key. | `string` | n/a | yes |
 | <a name="input_iaas_classic_username"></a> [iaas\_classic\_username](#input\_iaas\_classic\_username) | the classic username. | `string` | n/a | yes |
 | <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | The api key. | `string` | n/a | yes |
@@ -57,3 +60,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_client_config"></a> [client\_config](#output\_client\_config) | Client configuration. |
+| <a name="output_client_config_qr_codes"></a> [client\_config\_qr\_codes](#output\_client\_config\_qr\_codes) | Client configuration qr codes. |
