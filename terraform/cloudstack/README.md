@@ -1,3 +1,8 @@
+<!-- BEGIN_TF_DOCS -->
+# CloudStack
+
+The CloudStack provider was tested with Exoscale.
+
 ## Requirements
 
 | Name | Version |
@@ -54,3 +59,4 @@ No modules.
 |------|-------------|
 | <a name="output_client_config"></a> [client\_config](#output\_client\_config) | Client configuration. |
 | <a name="output_client_config_qr_codes"></a> [client\_config\_qr\_codes](#output\_client\_config\_qr\_codes) | Client configuration qr codes. |
+<!-- END_TF_DOCS -->

@@ -1,0 +1,20 @@
+formatter: markdown
+header-from: header.md
+output:
+  file: "README.md"
+  mode: replace
+
+content: |-
+  {{ .Header }}
+
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Modules }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}

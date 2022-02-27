@@ -1,3 +1,8 @@
+<!-- BEGIN_TF_DOCS -->
+# OpenStack
+
+The OpenStack provider was tested with both OVH and DreamCompute. It should work with both v2 and v3 of api.
+
 ## Requirements
 
 | Name | Version |
@@ -61,3 +66,4 @@ No modules.
 |------|-------------|
 | <a name="output_client_config"></a> [client\_config](#output\_client\_config) | Client configuration. |
 | <a name="output_client_config_qr_codes"></a> [client\_config\_qr\_codes](#output\_client\_config\_qr\_codes) | Client configuration qr codes. |
+<!-- END_TF_DOCS -->
