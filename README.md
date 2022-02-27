@@ -38,6 +38,9 @@ Generic-specific documentation [here](terraform/generic/README.md).
 ### Hetzner
 Hetzner-specific documentation [here](terraform/hetzner/README.md).
 
+### IONOS
+IONOS-specific documentation [here](terraform/ionos/README.md).
+
 ### IBM
 IBM-specific documentation [here](terraform/ibm/README.md).
 

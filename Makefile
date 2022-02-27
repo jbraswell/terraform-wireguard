@@ -10,6 +10,7 @@ docs:
 	terraform-docs markdown terraform/generic/ > terraform/generic/README.md
 	terraform-docs markdown terraform/hetzner/ > terraform/hetzner/README.md
 	terraform-docs markdown terraform/ibm/ > terraform/ibm/README.md
+	terraform-docs markdown terraform/ionos/ > terraform/ionos/README.md
 	terraform-docs markdown terraform/linode/ > terraform/linode/README.md
 	terraform-docs markdown terraform/oci/ > terraform/oci/README.md
 	terraform-docs markdown terraform/openstack/ > terraform/openstack/README.md
