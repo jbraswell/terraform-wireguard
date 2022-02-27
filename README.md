@@ -62,5 +62,8 @@ Scaleway-specific documentation [here](terraform/scaleway/README.md).
 ### Serverspace
 Serverspace-specific documentation [here](terraform/serverspace/README.md).
 
+### Tencent
+Tencent-specific documentation [here](terraform/tencent/README.md).
+
 ### Vultr
 Vultr-specific documentation [here](terraform/vultr/README.md).
