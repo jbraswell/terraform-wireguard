@@ -17,6 +17,7 @@ docs:
 	terraform-docs markdown terraform/upcloud/ > terraform/upcloud/README.md
 	terraform-docs markdown terraform/scaleway/ > terraform/scaleway/README.md
 	terraform-docs markdown terraform/serverspace/ > terraform/serverspace/README.md
+	terraform-docs markdown terraform/tencent/ > terraform/tencent/README.md
 	terraform-docs markdown terraform/vultr/ > terraform/vultr/README.md
 
 .PHONY: fmt
