@@ -32,7 +32,7 @@ data "wireguard_config_document" "client" {
   private_key = wireguard_asymmetric_key.client[each.key].private_key
   addresses   = ["${each.value}/32"]
   dns         = ["8.8.8.8"]
-  mtu = 1360
+  mtu         = 1360
 
   peer {
     endpoint             = "${google_compute_instance.wireguard.network_interface[0].access_config[0].nat_ip}:51820"
