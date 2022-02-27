@@ -45,7 +45,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_auth_url"></a> [auth\_url](#input\_auth\_url) | OpenStack auth url. | `string` | n/a | yes |
-| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2",<br>  "home": "10.10.10.3"<br>}</pre> | no |
+| <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2"<br>}</pre> | no |
 | <a name="input_flavor_name"></a> [flavor\_name](#input\_flavor\_name) | OpenStack flavor name (instance type). | `string` | n/a | yes |
 | <a name="input_image_name"></a> [image\_name](#input\_image\_name) | OpenStack image name. | `string` | `"Ubuntu 20.04"` | no |
 | <a name="input_password"></a> [password](#input\_password) | OpenStack password. | `string` | n/a | yes |
