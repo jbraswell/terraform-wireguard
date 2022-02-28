@@ -23,6 +23,9 @@ Azure-specific documentation [here](terraform/azure/README.md).
 ### Civo
 Civo-specific documentation [here](terraform/civo/README.md).
 
+### Cloudscale
+Cloudscale-specific documentation [here](terraform/cloudscale/README.md).
+
 ### CloudStack
 CloudStack-specific documentation [here](terraform/cloudstack/README.md).
 
