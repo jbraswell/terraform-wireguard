@@ -3,6 +3,7 @@ docs:
 	terraform-docs markdown terraform/alicloud/ > terraform/alicloud/README.md
 	terraform-docs markdown terraform/aws/ > terraform/aws/README.md
 	terraform-docs markdown terraform/azure/ > terraform/azure/README.md
+	terraform-docs markdown terraform/brightbox/ > terraform/brightbox/README.md
 	terraform-docs markdown terraform/civo/ > terraform/civo/README.md
 	terraform-docs markdown terraform/cloudscale/ > terraform/cloudscale/README.md
 	terraform-docs markdown terraform/cloudstack/ > terraform/cloudstack/README.md
