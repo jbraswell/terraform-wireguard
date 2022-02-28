@@ -31,6 +31,9 @@ Civo-specific documentation [here](terraform/civo/README.md).
 ### Cloudscale
 Cloudscale-specific documentation [here](terraform/cloudscale/README.md).
 
+### CloudSigma
+CloudSigma-specific documentation [here](terraform/cloudsigma/README.md).
+
 ### CloudStack
 CloudStack-specific documentation [here](terraform/cloudstack/README.md).
 
