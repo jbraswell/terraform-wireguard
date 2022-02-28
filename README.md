@@ -20,6 +20,9 @@ AWS-specific documentation [here](terraform/aws/README.md).
 ### Azure
 Azure-specific documentation [here](terraform/azure/README.md).
 
+### Brightbox
+Brightbox-specific documentation [here](terraform/brightbox/README.md).
+
 ### Civo
 Civo-specific documentation [here](terraform/civo/README.md).
 
