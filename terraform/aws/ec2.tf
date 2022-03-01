@@ -1,6 +1,6 @@
 resource "aws_instance" "wireguard" {
   ami                    = data.aws_ami.ubuntu.id
-  subnet_id              = tolist(data.aws_subnet_ids.subnets.ids)[0]
+  subnet_id              = data.aws_subnets.subnets.ids[0]
   instance_type          = "t3.nano"
   key_name               = aws_key_pair.wireguard.key_name
   vpc_security_group_ids = [aws_security_group.wireguard.id]
@@ -70,8 +70,11 @@ data "aws_vpc" "default" {
   default = true
 }
 
-data "aws_subnet_ids" "subnets" {
-  vpc_id = data.aws_vpc.default.id
+data "aws_subnets" "subnets" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
 }
 
 data "aws_ami" "ubuntu" {
