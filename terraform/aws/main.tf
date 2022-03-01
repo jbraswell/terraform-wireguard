@@ -8,7 +8,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.47"
+      version = "~> 4.2.0"
     }
     wireguard = {
       source  = "OJFord/wireguard"
