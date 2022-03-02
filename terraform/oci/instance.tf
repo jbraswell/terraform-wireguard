@@ -1,6 +1,6 @@
 resource "oci_core_instance" "wireguard" {
   availability_domain = oci_core_subnet.wireguard.availability_domain
-  compartment_id      = oci_identity_compartment.wireguard.id
+  compartment_id      = data.oci_identity_compartment.default.id
   display_name        = "wireguard-${terraform.workspace}"
   shape               = "VM.Standard2.1"
 
@@ -23,14 +23,14 @@ resource "oci_core_instance" "wireguard" {
 }
 
 resource "oci_core_public_ip" "wireguard" {
-  compartment_id = oci_identity_compartment.wireguard.id
+  compartment_id = data.oci_identity_compartment.default.id
   display_name   = "wireguard-${terraform.workspace}"
   lifetime       = "RESERVED"
   private_ip_id  = data.oci_core_private_ips.wireguard.private_ips[0]["id"]
 }
 
 data "oci_core_vnic_attachments" "wireguard" {
-  compartment_id      = oci_identity_compartment.wireguard.id
+  compartment_id      = data.oci_identity_compartment.default.id
   availability_domain = data.oci_identity_availability_domains.wireguard.availability_domains[0].name
   instance_id         = oci_core_instance.wireguard.id
 }
@@ -43,25 +43,23 @@ data "oci_core_private_ips" "wireguard" {
   vnic_id = data.oci_core_vnic.wireguard.id
 }
 
-resource "oci_identity_compartment" "wireguard" {
-  compartment_id = var.tenancy_ocid
-  description    = "Compartment for Wireguard Terraform resources."
-  name           = "wireguard-${terraform.workspace}"
+data "oci_identity_compartment" "default" {
+  id = var.tenancy_ocid
 }
 
 data "oci_identity_availability_domains" "wireguard" {
-  compartment_id = oci_identity_compartment.wireguard.id
+  compartment_id = data.oci_identity_compartment.default.id
 }
 
 resource "oci_core_vcn" "wireguard" {
   dns_label      = "wireguard"
   cidr_block     = var.vpc_cidr_block
-  compartment_id = oci_identity_compartment.wireguard.id
+  compartment_id = data.oci_identity_compartment.default.id
   display_name   = "wireguard-${terraform.workspace}"
 }
 
 resource "oci_core_internet_gateway" "wireguard" {
-  compartment_id = oci_identity_compartment.wireguard.id
+  compartment_id = data.oci_identity_compartment.default.id
   vcn_id         = oci_core_vcn.wireguard.id
   display_name   = "wireguard-${terraform.workspace}"
   enabled        = "true"
@@ -77,7 +75,7 @@ resource "oci_core_default_route_table" "wireguard" {
 }
 
 resource "oci_core_security_list" "wireguard" {
-  compartment_id = oci_identity_compartment.wireguard.id
+  compartment_id = data.oci_identity_compartment.default.id
   vcn_id         = oci_core_vcn.wireguard.id
   display_name   = "wireguard-${terraform.workspace}"
   egress_security_rules {
@@ -111,7 +109,7 @@ resource "oci_core_subnet" "wireguard" {
   display_name               = "wireguard-${terraform.workspace}"
   prohibit_public_ip_on_vnic = false
   dns_label                  = "wireguard"
-  compartment_id             = oci_identity_compartment.wireguard.id
+  compartment_id             = data.oci_identity_compartment.default.id
   vcn_id                     = oci_core_vcn.wireguard.id
   route_table_id             = oci_core_default_route_table.wireguard.id
   security_list_ids          = [oci_core_security_list.wireguard.id]
@@ -119,7 +117,7 @@ resource "oci_core_subnet" "wireguard" {
 }
 
 data "oci_core_images" "ubuntu_focal" {
-  compartment_id   = oci_identity_compartment.wireguard.id
+  compartment_id   = data.oci_identity_compartment.default.id
   operating_system = "Canonical Ubuntu"
   filter {
     name   = "display_name"
