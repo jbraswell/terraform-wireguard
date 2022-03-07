@@ -37,8 +37,8 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_clients"></a> [clients](#input\_clients) | Map of client names to ip addresses. Must be in the 10.10.10/24 subnet, and 10.10.10.1 is reserved for the server. | `map(string)` | <pre>{<br>  "default": "10.10.10.2"<br>}</pre> | no |
 | <a name="input_region"></a> [region](#input\_region) | The wireguard server's desired region. Valid regions at https://www.kamatera.com/Global_Data_Centers#page_383, to get region ids use their cli and run cloudcli server options --datacenter. | `string` | n/a | yes |
-| <a name="input_secret_id"></a> [secret\_id](#input\_secret\_id) | Tencent secret id. | `string` | n/a | yes |
-| <a name="input_secret_key"></a> [secret\_key](#input\_secret\_key) | Tencent secret key. | `string` | n/a | yes |
+| <a name="input_secret_id"></a> [secret\_id](#input\_secret\_id) | Kamatera secret id. | `string` | n/a | yes |
+| <a name="input_secret_key"></a> [secret\_key](#input\_secret\_key) | Kamatera secret key. | `string` | n/a | yes |
 | <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | The SSH key used to access the wireguard server. | `string` | n/a | yes |
 
 ## Outputs

@@ -18,10 +18,10 @@ variable "clients" {
 
 variable "secret_id" {
   type        = string
-  description = "Tencent secret id."
+  description = "Kamatera secret id."
 }
 
 variable "secret_key" {
   type        = string
-  description = "Tencent secret key."
+  description = "Kamatera secret key."
 }
