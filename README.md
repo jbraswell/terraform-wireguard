@@ -53,6 +53,9 @@ IONOS-specific documentation [here](terraform/ionos/README.md).
 ### IBM
 IBM-specific documentation [here](terraform/ibm/README.md).
 
+### Kamatera
+Kamatera-specific documentation [here](terraform/kamatera/README.md).
+
 ### Linode
 Linode-specific documentation [here](terraform/linode/README.md).
 
