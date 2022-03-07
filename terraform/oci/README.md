@@ -30,7 +30,6 @@ No modules.
 | [oci_core_security_list.wireguard](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_security_list) | resource |
 | [oci_core_subnet.wireguard](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_subnet) | resource |
 | [oci_core_vcn.wireguard](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_vcn) | resource |
-| [oci_identity_compartment.wireguard](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/identity_compartment) | resource |
 | [wireguard_asymmetric_key.client](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/resources/asymmetric_key) | resource |
 | [wireguard_asymmetric_key.server](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/resources/asymmetric_key) | resource |
 | [cloudinit_config.wireguard](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/data-sources/config) | data source |
@@ -41,6 +40,7 @@ No modules.
 | [oci_core_vnic.wireguard](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/core_vnic) | data source |
 | [oci_core_vnic_attachments.wireguard](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/core_vnic_attachments) | data source |
 | [oci_identity_availability_domains.wireguard](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/identity_availability_domains) | data source |
+| [oci_identity_compartment.default](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/identity_compartment) | data source |
 | [wireguard_config_document.client](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/data-sources/config_document) | data source |
 | [wireguard_config_document.server](https://registry.terraform.io/providers/OJFord/wireguard/latest/docs/data-sources/config_document) | data source |
 
