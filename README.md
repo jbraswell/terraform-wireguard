@@ -10,6 +10,8 @@ Whether targeting any cloud provider, the general steps are as follows:
 2. Run `terraform apply`, and copy/paste the `client_config` output into your Wireguard tunnel configuration.
 3. That's it!
 
+### AdvancedHosting
+AdvancedHosting-specific documentation [here](terraform/advancedhosting/README.md).
 
 ### AlibabaCloud
 AlibabaCloud-specific documentation [here](terraform/alicloud/README.md).
