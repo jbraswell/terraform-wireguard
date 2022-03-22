@@ -40,6 +40,9 @@ CloudStack-specific documentation [here](terraform/cloudstack/README.md).
 ### DigitalOcean
 DigitalOcean-specific documentation [here](terraform/do/README.md).
 
+### Equinix
+Equinix-specific documentation [here](terraform/equinix/README.md)
+
 ### Exoscale
 Exoscale-specific documentation [here](terraform/exoscale/README.md).
 
