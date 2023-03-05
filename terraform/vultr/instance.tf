@@ -1,7 +1,7 @@
 data "vultr_os" "ubuntu" {
   filter {
     name   = "name"
-    values = ["Ubuntu 20.04 x64"]
+    values = ["Ubuntu 20.04 LTS x64"]
   }
 }
 
