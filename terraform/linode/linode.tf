@@ -1,6 +1,6 @@
 resource "linode_instance" "wireguard" {
   label           = "wireguard-${terraform.workspace}"
-  image           = "linode/ubuntu20.04"
+  image           = "linode/ubuntu22.04"
   region          = var.region
   type            = "g6-standard-1"
   authorized_keys = [linode_sshkey.wireguard.ssh_key]

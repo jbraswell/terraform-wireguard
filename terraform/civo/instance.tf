@@ -84,6 +84,6 @@ resource "civo_firewall_rule" "egress_udp" {
 data "civo_disk_image" "ubuntu" {
   filter {
     key    = "name"
-    values = ["ubuntu-focal"]
+    values = ["ubuntu-jammy"]
   }
 }

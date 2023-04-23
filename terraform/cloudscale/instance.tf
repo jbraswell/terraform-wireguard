@@ -2,7 +2,7 @@ resource "cloudscale_server" "wireguard" {
   name           = "wireguard-${terraform.workspace}"
   zone_slug      = var.region
   flavor_slug    = "flex-2"
-  image_slug     = "ubuntu-20.04"
+  image_slug     = "ubuntu-22.04"
   volume_size_gb = 10
   ssh_keys       = [var.ssh_public_key]
   user_data      = data.cloudinit_config.wireguard.part[0].content
