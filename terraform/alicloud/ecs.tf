@@ -48,7 +48,7 @@ resource "alicloud_security_group_rule" "allow_all_egress" {
 
 data "alicloud_images" "ubuntu" {
   most_recent = true
-  name_regex  = "^ubuntu_20_04_x64*"
+  name_regex  = "^ubuntu_22_04_x64*"
 }
 
 resource "alicloud_vpc" "vpc" {

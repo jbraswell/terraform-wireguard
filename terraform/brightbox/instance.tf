@@ -65,7 +65,7 @@ resource "brightbox_firewall_rule" "egress_udp" {
 }
 
 data "brightbox_image" "ubuntu" {
-  name        = "^ubuntu-focal.*"
+  name        = "^ubuntu-jammy.*"
   arch        = "x86_64"
   official    = true
   most_recent = true
