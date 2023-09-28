@@ -37,6 +37,9 @@ CloudSigma-specific documentation [here](terraform/cloudsigma/README.md).
 ### CloudStack
 CloudStack-specific documentation [here](terraform/cloudstack/README.md).
 
+### Contabo
+Contabo-specific documentation [here](terraform/contabo/README.md).
+
 ### DigitalOcean
 DigitalOcean-specific documentation [here](terraform/do/README.md).
 
