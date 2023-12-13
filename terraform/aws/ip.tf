@@ -7,5 +7,5 @@ data "http" "ip" {
 }
 
 locals {
-  myip = "${jsondecode(data.http.ip.body).ip_addr}/32"
+  myip = "${jsondecode(data.http.ip.response_body).ip_addr}/32"
 }
