@@ -58,6 +58,12 @@ Generic-specific documentation [here](terraform/generic/README.md).
 ### Hetzner
 Hetzner-specific documentation [here](terraform/hetzner/README.md).
 
+### Hostinger
+Hostinger-specific documentation [here](terraform/hostinger/README.md).
+
+### Huawei Cloud
+Huawei Cloud-specific documentation [here](terraform/huaweicloud/README.md).
+
 ### IONOS
 IONOS-specific documentation [here](terraform/ionos/README.md).
 
@@ -90,3 +96,6 @@ Tencent-specific documentation [here](terraform/tencent/README.md).
 
 ### Vultr
 Vultr-specific documentation [here](terraform/vultr/README.md).
+
+### Yandex Cloud
+Yandex Cloud-specific documentation [here](terraform/yandex/README.md).
